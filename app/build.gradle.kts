@@ -8,11 +8,11 @@ plugins {
 }
 
 android {
-    namespace = "com.johnstanley.attachmentapp"
+    namespace = "com.emmutua.attachmentapp"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.johnstanley.attachmentapp"
+        applicationId = "com.emmutua.attachmentapp"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
