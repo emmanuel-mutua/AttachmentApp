@@ -19,7 +19,6 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.rememberNavController
-import com.jakewharton.threetenabp.AndroidThreeTen
 import com.emmutua.attachmentapp.data.database.ImageToDeleteDao
 import com.emmutua.attachmentapp.data.database.ImageToUploadDao
 import com.emmutua.attachmentapp.presentation.auth.AuthNavGraph
@@ -28,6 +27,7 @@ import com.emmutua.attachmentapp.presentation.auth.AuthViewModel
 import com.emmutua.attachmentapp.ui.theme.AttachmentAppTheme
 import com.emmutua.attachmentapp.utils.retryDeletingImageFromFirebase
 import com.emmutua.attachmentapp.utils.retryUploadingImageToFirebase
+import com.jakewharton.threetenabp.AndroidThreeTen
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -80,7 +80,7 @@ fun AttachmentApp(name: String, modifier: Modifier = Modifier, activity : Activi
         val authViewModel: AuthViewModel = hiltViewModel()
         val startDestination =
             if (authViewModel.currentUser != null && authViewModel.isEmailVerified) {
-                AuthScreen.Home.route
+                AuthScreen.StudentHome.route
             } else {
                 AuthScreen.Login.route
             }
