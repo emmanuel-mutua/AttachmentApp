@@ -15,7 +15,6 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.emmutua.attachmentapp.presentation.staff.home.StaffHomeScreen
 import com.emmutua.attachmentapp.presentation.student.home.StudentHomeScreen
 import com.emmutua.attachmentapp.utils.Contants.StaffText
 import com.emmutua.attachmentapp.utils.Contants.StudentText
@@ -34,7 +33,7 @@ fun AuthNavGraph(
             registerState = registerState,
             viewModel = authViewModel,
             navigateToRegister = {
-               navController.navigateWithPop(AuthScreen.Register.route)
+                navController.navigateWithPop(AuthScreen.Register.route)
             },
             navigateToHome = {
                 navController.navigate(AuthScreen.Home.route) {
@@ -59,12 +58,8 @@ fun AuthNavGraph(
                 navController.popBackStack()
                 navController.navigate(AuthScreen.StudentHome.route)
             },
-            navigateToStaff = {
-                navController.popBackStack()
-                navController.navigate(AuthScreen.StaffHome.route)
-            },
 
-        )
+            )
         studentHomeScreen(
             navigateToLogin = {
                 activity.finish()
@@ -73,7 +68,6 @@ fun AuthNavGraph(
 //                navController.navigate(AuthScreen.Login.route)
             },
         )
-        staffHomeScreen()
     }
 }
 
@@ -118,7 +112,6 @@ fun NavGraphBuilder.homeScreen(
     registerState: AuthStateData,
     viewModel: AuthViewModel,
     navigateToLogin: () -> Unit,
-    navigateToStaff: () -> Unit,
     navigateToStudent: () -> Unit,
 ) {
     composable(AuthScreen.Home.route) {
@@ -131,7 +124,6 @@ fun NavGraphBuilder.homeScreen(
                 if (role.isNotEmpty()) {
                     when (role) {
                         StudentText -> navigateToStudent()
-                        StaffText -> navigateToStaff()
                         else -> navigateToLogin()
                     }
                 } else {
@@ -154,11 +146,6 @@ fun NavGraphBuilder.studentHomeScreen(navigateToLogin: () -> Unit) {
     }
 }
 
-fun NavGraphBuilder.staffHomeScreen() {
-    composable(AuthScreen.StaffHome.route) {
-        StaffHomeScreen()
-    }
-}
 
 fun NavController.navigateWithPop(route: String) {
     navigate(route) {

@@ -69,12 +69,9 @@ fun RegisterScreen(
     var registrationNumber by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
     var phoneNumber by remember { mutableStateOf("") }
-    val role by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var isPassWordError by remember { mutableStateOf(false) }
     var confirmPassword by remember { mutableStateOf("") }
-    var selectedRole by remember { mutableStateOf(role) }
-    val roles = listOf(StaffText, StudentText)
     val context = LocalContext.current
     val signUpResponse by viewModel.signUpResponse.collectAsState()
     when (signUpResponse) {
@@ -93,8 +90,7 @@ fun RegisterScreen(
                         context,
                         "Account created, Please verify email",
                         Toast.LENGTH_LONG,
-                    )
-                        .show()
+                    ).show()
                 }
             }
         }
@@ -103,8 +99,7 @@ fun RegisterScreen(
             isLoading = false
             val message = (signUpResponse as Response.Failure).message
             LaunchedEffect(Unit) {
-                Toast.makeText(context, message, Toast.LENGTH_SHORT)
-                    .show()
+                Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -141,31 +136,6 @@ fun RegisterScreen(
                 )
                 Spacer(modifier = Modifier.height(32.dp))
 
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(bottom = 10.dp, start = 50.dp),
-                    horizontalArrangement = Arrangement.spacedBy(10.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Text("Select:")
-                    roles.forEach { roleOption ->
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                        ) {
-                            RadioButton(
-                                selected = roleOption == selectedRole,
-                                onClick = {
-                                    selectedRole = roleOption
-                                    viewModel.setRole(selectedRole)
-                                },
-                            )
-                            Spacer(modifier = Modifier.width(4.dp))
-                            Text(roleOption)
-                        }
-                    }
-                }
-
                 MyOutlinedTextField(
                     value = fullName,
                     placeHolder = "FullName",
@@ -175,20 +145,18 @@ fun RegisterScreen(
                         keyboardType = KeyboardType.Text,
                     ),
                 )
-                if (selectedRole == StudentText) {
-                    MyOutlinedTextField(
-                        value = registrationNumber,
-                        placeHolder = "Registration Number",
-                        onValueChange = {
-                            registrationNumber = it
-                            viewModel.setRegNo(it)
-                        },
-                        isError = false,
-                        keyboardOptions = KeyboardOptions(
-                            keyboardType = KeyboardType.Text,
-                        ),
-                    )
-                }
+                MyOutlinedTextField(
+                    value = registrationNumber,
+                    placeHolder = "Registration Number",
+                    onValueChange = {
+                        registrationNumber = it
+                        viewModel.setRegNo(it)
+                    },
+                    isError = false,
+                    keyboardOptions = KeyboardOptions(
+                        keyboardType = KeyboardType.Text,
+                    ),
+                )
 
                 MyOutlinedTextField(
                     value = phoneNumber,
@@ -242,19 +210,18 @@ fun RegisterScreen(
                 Spacer(modifier = Modifier.height(20.dp))
                 Button(
                     onClick = {
-                        if (selectedRole == "" || fullName == "" || phoneNumber == "" || email == "" || (registrationNumber == "" && selectedRole == StudentText)) {
+                        if (fullName == "" || phoneNumber == "" || email == "" || (registrationNumber == "")) {
                             Toast.makeText(context, "All fields required", Toast.LENGTH_SHORT)
                                 .show()
                             return@Button
                         }
                         if (isPassWordError) {
-                            Toast.makeText(context, "Password Mismatch", Toast.LENGTH_SHORT)
-                                .show()
+                            Toast.makeText(context, "Password Mismatch", Toast.LENGTH_SHORT).show()
                             return@Button
                         }
                         viewModel.saveUserDetails(
                             fullName,
-                            if (selectedRole == StudentText) registrationNumber else "",
+                            registrationNumber,
                             phoneNumber,
                             email,
                         )
@@ -312,6 +279,5 @@ fun RegisterScreen(
 @Preview
 @Composable
 fun RegisterScreenPrev() {
-    AttachmentAppTheme {
-    }
+    AttachmentAppTheme {}
 }

@@ -99,31 +99,6 @@ fun LoginScreen(
                 )
                 Spacer(modifier = Modifier.height(50.dp))
 
-//                Row(
-//                    modifier = Modifier
-//                        .fillMaxWidth()
-//                        .padding(bottom = 10.dp, start = 50.dp),
-//                    horizontalArrangement = Arrangement.spacedBy(10.dp),
-//                    verticalAlignment = Alignment.CenterVertically,
-//                ) {
-//                    Text("Select:")
-//                    roles.forEach { roleOption ->
-//                        Row(
-//                            verticalAlignment = Alignment.CenterVertically,
-//                        ) {
-//                            RadioButton(
-//                                selected = roleOption == selectedRole,
-//                                onClick = {
-//                                    selectedRole = roleOption
-//                                    viewModel.setRole(selectedRole)
-//                                },
-//                            )
-//                            Spacer(modifier = Modifier.width(4.dp))
-//                            Text(roleOption)
-//                        }
-//                    }
-//                }
-
                 MyOutlinedTextField(
                     value = email,
                     placeHolder = "Email",

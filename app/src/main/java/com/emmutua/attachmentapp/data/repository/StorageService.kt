@@ -1,13 +1,12 @@
 package com.emmutua.attachmentapp.data.repository
 
 import android.util.Log
-import com.google.firebase.firestore.DocumentSnapshot
-import com.google.firebase.firestore.FirebaseFirestore
 import com.emmutua.attachmentapp.data.Response
 import com.emmutua.attachmentapp.data.model.AttachmentLog
 import com.emmutua.attachmentapp.data.model.RequestState
-import com.emmutua.attachmentapp.presentation.auth.StaffData
 import com.emmutua.attachmentapp.presentation.auth.StudentData
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await
 import java.time.LocalDate
 
@@ -16,7 +15,6 @@ typealias AttachmentLogs = RequestState<Map<LocalDate, List<AttachmentLog>>>
 
 interface StorageService {
     suspend fun addStudent(user: StudentData): Boolean
-    suspend fun addStaff(user: StaffData): Boolean
     suspend fun getUserData(uid: String, onSuccess: (DocumentSnapshot) -> Unit)
 }
 
@@ -35,16 +33,6 @@ class StorageServiceImpl(
         }
     }
 
-    override suspend fun addStaff(user: StaffData): Boolean {
-        return try {
-            db.collection("users").document(user.uid).set(user)
-                .await()
-            true
-        } catch (e: Exception) {
-            Log.d("FireStore", e.localizedMessage)
-            false
-        }
-    }
 
     override suspend fun getUserData(
         uid: String,

@@ -5,5 +5,4 @@ sealed class AuthScreen(val route: String) {
     object Register : AuthScreen(route = "register")
     object Home : AuthScreen(route = "home")
     object StudentHome : AuthScreen(route = "student")
-    object StaffHome : AuthScreen(route = "staff")
 }

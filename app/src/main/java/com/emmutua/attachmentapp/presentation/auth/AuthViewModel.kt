@@ -25,14 +25,11 @@ class AuthViewModel @Inject constructor(
     private val storageService: StorageService,
 ) : ViewModel() {
     private var _registerState = MutableStateFlow(AuthStateData())
-    private var _loggedInResponse = MutableStateFlow(LoggedInUser())
-    val loggedInResponse = _loggedInResponse.asStateFlow()
     val registerState = _registerState.asStateFlow()
     val isEmailVerified get() = authRepo.currentUser?.isEmailVerified ?: false
     val currentUser: FirebaseUser? = FirebaseAuth.getInstance().currentUser
     private val currentUserId = currentUser?.uid ?: ""
     private var _studentData = MutableStateFlow(StudentData())
-    private var _staffData = MutableStateFlow(StaffData())
 
     init {
         viewModelScope.launch {
@@ -138,52 +135,27 @@ class AuthViewModel @Inject constructor(
         email: String,
     ) {
         val role = _registerState.value.role
-        if (role == StudentText) {
-            _studentData.update {
-                it.copy(
-                    fullName = fullName,
-                    registrationNumber = registrationNumber,
-                    phoneNumber = phoneNumber,
-                    email = email,
-                    role = role,
-                )
-            }
-        } else {
-            _staffData.update {
-                it.copy(
-                    fullName = fullName,
-                    phoneNumber = phoneNumber,
-                    email = email,
-                    role = role,
-                )
-            }
+        _studentData.update {
+            it.copy(
+                fullName = fullName,
+                registrationNumber = registrationNumber,
+                phoneNumber = phoneNumber,
+                email = email,
+                role = role,
+            )
         }
     }
 
     fun saveUserToDataBase() {
-        val role = _registerState.value.role
-        if (role == Contants.StudentText) {
-            viewModelScope.launch {
-                delay(2000)
-                _studentData.update {
-                    it.copy(
-                        uid = FirebaseAuth.getInstance()?.currentUser?.uid ?: "",
-                    )
-                }
-                val response = storageService.addStudent(_studentData.value)
-                if (response) {
-                }
+        viewModelScope.launch {
+            delay(2000)
+            _studentData.update {
+                it.copy(
+                    uid = FirebaseAuth.getInstance()?.currentUser?.uid ?: "",
+                )
             }
-        } else {
-            viewModelScope.launch {
-                _staffData.update {
-                    it.copy(
-                        uid = FirebaseAuth.getInstance()?.currentUser?.uid ?: "",
-                    )
-                }
-                val response = storageService.addStaff(_staffData.value)
-                if (response) {
-                }
+            val response = storageService.addStudent(_studentData.value)
+            if (response) {
             }
         }
     }
@@ -231,6 +203,7 @@ class AuthViewModel @Inject constructor(
     }
 }
 
+
 data class AuthStateData(
     val isLoading: Boolean = false,
     val role: String = "",
@@ -247,12 +220,4 @@ data class StudentData(
     val phoneNumber: String = "",
     val role: String = "",
     val addedAttachmentDetails: Boolean = false,
-)
-
-data class StaffData(
-    val uid: String = "",
-    val fullName: String = "",
-    val email: String = "",
-    val phoneNumber: String = "",
-    val role: String = "",
 )
