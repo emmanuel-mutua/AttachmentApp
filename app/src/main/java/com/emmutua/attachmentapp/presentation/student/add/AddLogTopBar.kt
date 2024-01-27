@@ -16,7 +16,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import com.emmutua.attachmentapp.data.model.AttachmentLog
 import com.emmutua.attachmentapp.presentation.components.DisplayAlertDialog
-import com.maxkeppeker.sheets.core.models.base.rememberSheetState
+import com.maxkeppeker.sheets.core.models.base.rememberUseCaseState
 import com.maxkeppeler.sheets.calendar.CalendarDialog
 import com.maxkeppeler.sheets.calendar.models.CalendarConfig
 import com.maxkeppeler.sheets.calendar.models.CalendarSelection
@@ -46,8 +46,8 @@ fun WriteTopBar(
         }
     }
     var currentTime by remember { mutableStateOf(LocalTime.now()) }
-    val dateDialog = rememberSheetState()
-    val timeDialog = rememberSheetState()
+    val dateDialog =  rememberUseCaseState()
+    val timeDialog =  rememberUseCaseState()
     val formattedDate = remember(key1 = currentDate) {
         DateTimeFormatter
             .ofPattern("dd MMM yyyy")

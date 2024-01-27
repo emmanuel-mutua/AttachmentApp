@@ -1,9 +1,9 @@
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
-    id("com.google.dagger.hilt.android")
-    id("com.google.devtools.ksp")
-    id("com.google.gms.google-services")
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.dagger.hilt.android)
+    alias(libs.plugins.google.services)
 //    id("kotlin-kapt")
 }
 
@@ -55,60 +55,60 @@ android {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.9.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
-    implementation("androidx.activity:activity-compose:1.8.0")
-    implementation(platform("androidx.compose:compose-bom:2023.03.00"))
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.ui:ui-graphics")
-    implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.compose.material3:material3")
-    implementation("com.google.firebase:firebase-storage-ktx:20.3.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
-    debugImplementation("androidx.compose.ui:ui-tooling")
-    debugImplementation("androidx.compose.ui:ui-test-manifest")
-    implementation("androidx.navigation:navigation-compose:2.7.4")
+    implementation(libs.android.ktx)
+    implementation(libs.runtime.ktx)
+    implementation(libs.activity.compose)
+    implementation(platform(libs.compose.bom))
+    implementation(libs.ui.ui)
+    implementation(libs.ui.graphics)
+    implementation(libs.ui.tooling.preview)
+    implementation(libs.material3)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.espresso.core)
+    androidTestImplementation(platform(libs.compose.bom))
+    androidTestImplementation(libs.ui.test.junit4)
+    debugImplementation(libs.ui.tooling)
+    debugImplementation(libs.ui.test.manifest)
+    implementation(libs.navigation.compose)
 
-    implementation("com.jakewharton.threetenabp:threetenabp:1.3.0")
+    implementation(libs.threetenabp)
 
 
     // FIREBASE
-    implementation("com.google.firebase:firebase-firestore:24.9.1")
-    implementation(platform("com.google.firebase:firebase-bom:32.1.1"))
-    implementation("com.google.firebase:firebase-auth-ktx")
-    implementation("com.google.firebase:firebase-auth:21.1.0")
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.firestore)
+    implementation(libs.firebase.storage.ktx)
+    implementation(libs.firebase.auth.ktx)
+    implementation(libs.firebase.auth)
 
     // Room components
-    implementation("androidx.room:room-runtime:2.5.2")
-    ksp("androidx.room:room-compiler:2.5.2")
-    implementation("androidx.room:room-ktx:2.5.2")
+    implementation(libs.room.runtime)
+    ksp(libs.room.compiler)
+    implementation(libs.room.ktx)
 
 
     // dagger hilt
-    implementation("com.google.dagger:hilt-android:2.48.1")
-    implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
-    ksp("com.google.dagger:hilt-compiler:2.48.1")
+    implementation(libs.hilt.android)
+    implementation(libs.hilt.navigation.compose)
+    ksp(libs.hilt.compiler)
 //    kapt("com.google.dagger:hilt-compiler:2.48.1")
 
     // Message bar compose
-    implementation("com.github.stevdza-san:MessageBarCompose:1.0.8")
+    implementation(libs.messageBarCompose)
 
     // Date-Time Picker
-    implementation("com.maxkeppeler.sheets-compose-dialogs:core:1.0.2")
+    implementation(libs.sheets.compose.dialogs)
 
     // CALENDAR
-    implementation("com.maxkeppeler.sheets-compose-dialogs:calendar:1.0.2")
+    implementation(libs.sheets.compose.dialogs.calender)
 
     // SPLASH SCREEN
-    implementation("androidx.core:core-splashscreen:1.0.1")
+    implementation(libs.core.splashscreen)
 
     // CLOCK
-    implementation("com.maxkeppeler.sheets-compose-dialogs:clock:1.0.2")
+    implementation(libs.sheets.compose.dialogs.clock)
 
     // IMAGE DISPLAY
-    implementation("io.coil-kt:coil-compose:2.5.0")
+    implementation(libs.coil.compose)
 }

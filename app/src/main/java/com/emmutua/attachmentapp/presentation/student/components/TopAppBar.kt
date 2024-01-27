@@ -13,7 +13,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
-import com.maxkeppeker.sheets.core.models.base.rememberSheetState
+import com.maxkeppeker.sheets.core.models.base.rememberUseCaseState
 import com.maxkeppeler.sheets.calendar.CalendarDialog
 import com.maxkeppeler.sheets.calendar.models.CalendarConfig
 import com.maxkeppeler.sheets.calendar.models.CalendarSelection
@@ -30,7 +30,7 @@ fun HomeAppBar(
     onDateSelected: (ZonedDateTime) -> Unit,
     onDateReset: () -> Unit,
 ) {
-    val dateDialog = rememberSheetState()
+    val dateDialog =  rememberUseCaseState()
     TopAppBar(
         scrollBehavior = scrollBehavior,
         navigationIcon = {
