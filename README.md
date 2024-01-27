@@ -21,5 +21,10 @@
 
 - Read modularisation: On documentation : Link :https://developer.android.com/topic/modularization
 
-- **First define version catalog** - _It will act as a single source of truth for all the dependencies_
+# How to modularize
+
+**(i) First define version catalog** - _It will act as a single source of truth for all the dependencies_
+
 - It means all the versions and dependencies used in the project
+- Create a file in gradle package name it _libs.versions.toml_ file format for config files
+- 
