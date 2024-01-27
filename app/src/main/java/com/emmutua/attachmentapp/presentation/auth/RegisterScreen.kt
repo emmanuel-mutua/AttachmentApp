@@ -73,6 +73,7 @@ fun RegisterScreen(
     var isPassWordError by remember { mutableStateOf(false) }
     var confirmPassword by remember { mutableStateOf("") }
     val context = LocalContext.current
+    val dsdsds = LocalContext.current
     val signUpResponse by viewModel.signUpResponse.collectAsState()
     when (signUpResponse) {
         Response.Loading -> {
