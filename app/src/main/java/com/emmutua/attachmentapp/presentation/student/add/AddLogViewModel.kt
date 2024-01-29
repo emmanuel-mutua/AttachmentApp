@@ -62,7 +62,6 @@ class AddLogViewModel @Inject constructor(
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     private fun fetchSelectedAttachmentLog() {
         Log.d("Fetch selected", "fetchSelectedid : ${_uiState.value.selectedAttachLogId}")
         if (_uiState.value.selectedAttachLogId != null) {

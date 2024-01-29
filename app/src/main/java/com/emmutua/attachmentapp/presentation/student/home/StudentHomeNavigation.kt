@@ -26,7 +26,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.emmutua.attachmentapp.presentation.auth.AuthViewModel
-import com.emmutua.attachmentapp.presentation.components.DisplayAlertDialog
+import com.emmutua.ui.theme.components.DisplayAlertDialog
 import com.emmutua.attachmentapp.presentation.student.add.AddLogScreen
 import com.emmutua.attachmentapp.presentation.student.add.AddLogViewModel
 import com.emmutua.attachmentapp.presentation.student.add.UpdateLogScreen

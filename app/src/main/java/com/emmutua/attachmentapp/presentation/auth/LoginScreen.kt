@@ -40,8 +40,8 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.emmutua.attachmentapp.presentation.components.MyOutlinedTextField
-import com.emmutua.attachmentapp.presentation.components.PassWordField
+import com.emmutua.ui.theme.components.MyOutlinedTextField
+import com.emmutua.ui.theme.components.PassWordField
 import com.emmutua.attachmentapp.utils.Contants
 import com.stevdzasan.messagebar.ContentWithMessageBar
 import com.stevdzasan.messagebar.rememberMessageBarState

@@ -9,12 +9,12 @@ plugins {
 
 android {
     namespace = "com.emmutua.attachmentapp"
-    compileSdk = 34
+    compileSdk = ProjectConfig.compileSdk
 
     defaultConfig {
         applicationId = "com.emmutua.attachmentapp"
-        minSdk = 24
-        targetSdk = 34
+        minSdk = ProjectConfig.minSdk
+        targetSdk = ProjectConfig.targetSdk
         versionCode = 1
         versionName = "1.0"
 
@@ -36,6 +36,7 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+        isCoreLibraryDesugaringEnabled = true
     }
     kotlinOptions {
         jvmTarget = "17"
@@ -44,7 +45,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.0"
+        kotlinCompilerExtensionVersion = ProjectConfig.kotlinCompilerExtensionVersion
     }
     packaging {
         resources {
@@ -111,4 +112,11 @@ dependencies {
 
     // IMAGE DISPLAY
     implementation(libs.coil.compose)
+
+    // Desugar JDK
+    coreLibraryDesugaring(libs.desugar.jdk)
+
+    implementation(project(":core:ui"))
+    implementation(project(":core:util"))
+
 }
