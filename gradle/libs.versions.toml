@@ -24,6 +24,9 @@ sheets-compose-dialogs = "1.2.1"
 core-splashscreen = "1.0.1"
 coil-compose = "2.5.0"
 espresso-core = "3.5.14"
+desugar = "2.0.3"
+appcompat = "1.6.1"
+material = "1.9.0"
 
 [libraries]
 android-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx"}
@@ -67,6 +70,10 @@ sheets-compose-dialogs-calender = { module = "com.maxkeppeler.sheets-compose-dia
 core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "core-splashscreen"}
 
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil-compose"}
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+desugar-jdk = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
@@ -74,3 +81,4 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlinVer
 ksp = { id = "com.google.devtools.ksp", version.ref = "kspPlugin" }
 dagger-hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt-android" }
 google-services = { id = "com.google.gms.google-services", version.ref = "googleServicesPlugin" }
+androidLibrary = { id = "com.android.library", version.ref = "androidGradlePlugin" }

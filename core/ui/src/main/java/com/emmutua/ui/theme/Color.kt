@@ -1,4 +1,4 @@
-package com.emmutua.attachmentapp.ui.theme
+package com.emmutua.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

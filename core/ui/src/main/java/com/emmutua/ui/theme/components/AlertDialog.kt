@@ -1,4 +1,4 @@
-package com.emmutua.attachmentapp.presentation.components
+package com.emmutua.ui.theme.components
 
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button

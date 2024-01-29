@@ -1,4 +1,4 @@
-package com.emmutua.attachmentapp.ui.theme
+package com.emmutua.ui.theme
 
 import android.app.Activity
 import android.os.Build
@@ -15,6 +15,7 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
+import com.emmutua.ui.theme.*
 
 private val LightColors = lightColorScheme(
     primary = md_theme_light_primary,

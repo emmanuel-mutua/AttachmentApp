@@ -1,16 +1,11 @@
-package com.emmutua.attachmentapp.presentation.components
+package com.emmutua.ui.theme.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -22,8 +17,9 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
-import com.emmutua.attachmentapp.R
+import com.emmutua.ui.R
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MyOutlinedTextField(
     value: String,
@@ -46,6 +42,7 @@ fun MyOutlinedTextField(
     Spacer(modifier = Modifier.height(5.dp))
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PassWordField(
     isPasswordVisible: Boolean,

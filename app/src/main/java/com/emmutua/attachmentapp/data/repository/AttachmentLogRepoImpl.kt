@@ -1,11 +1,9 @@
 package com.emmutua.attachmentapp.data.repository
 
-import android.os.Build
 import android.util.Log
-import androidx.annotation.RequiresApi
-import com.google.firebase.firestore.FirebaseFirestore
 import com.emmutua.attachmentapp.data.model.AttachmentLog
 import com.emmutua.attachmentapp.data.model.RequestState
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.tasks.await
@@ -24,13 +22,9 @@ object FirebaseAttachmentLogRepo : AttachmentLogRepo {
                 .whereEqualTo("studentId", studentId)
                 .get().await()
             val logs = snapshot.toObjects(AttachmentLog::class.java).groupBy {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    val timestampMillis = it.date
-                    val timestampInstant = Instant.ofEpochMilli(timestampMillis)
-                    timestampInstant.atZone(ZoneId.systemDefault()).toLocalDate()
-                } else {
-                    TODO("VERSION.SDK_INT < O")
-                }
+                val timestampMillis = it.date
+                val timestampInstant = Instant.ofEpochMilli(timestampMillis)
+                timestampInstant.atZone(ZoneId.systemDefault()).toLocalDate()
             }
             flow {
                 emit(
@@ -44,7 +38,6 @@ object FirebaseAttachmentLogRepo : AttachmentLogRepo {
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override suspend fun getFilteredAttachmentLogs(
         zonedDateTime: ZonedDateTime,
         studentId: String,
@@ -63,13 +56,9 @@ object FirebaseAttachmentLogRepo : AttachmentLogRepo {
                 .await()
 
             val logs = snapshot.toObjects(AttachmentLog::class.java).groupBy {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    val timestampMillis = it.date
-                    val timestampInstant = Instant.ofEpochMilli(timestampMillis)
-                    timestampInstant.atZone(ZoneId.systemDefault()).toLocalDate()
-                } else {
-                    TODO("VERSION.SDK_INT < O")
-                }
+                val timestampMillis = it.date
+                val timestampInstant = Instant.ofEpochMilli(timestampMillis)
+                timestampInstant.atZone(ZoneId.systemDefault()).toLocalDate()
             }
             flow {
                 emit(
@@ -82,7 +71,6 @@ object FirebaseAttachmentLogRepo : AttachmentLogRepo {
             flow { emit(RequestState.Error(e)) }
         }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override suspend fun getSelectedAttachmentLog(attachmentId: String): RequestState<AttachmentLog> =
         try {
             Log.d("ATTACHID", "getSelectedAttachmentLog:$attachmentId ")
@@ -101,7 +89,8 @@ object FirebaseAttachmentLogRepo : AttachmentLogRepo {
         }
 
     override suspend fun insertAttachmentLog(attachmentLog: AttachmentLog): RequestState<AttachmentLog> {
-        return try { attachmentLogsCollection.document(attachmentLog.id).set(attachmentLog).await()
+        return try {
+            attachmentLogsCollection.document(attachmentLog.id).set(attachmentLog).await()
             val insertedLog = attachmentLog
             RequestState.Success(insertedLog)
         } catch (e: Exception) {
