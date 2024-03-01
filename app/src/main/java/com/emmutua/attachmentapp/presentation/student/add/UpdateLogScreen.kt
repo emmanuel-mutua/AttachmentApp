@@ -27,9 +27,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.emmutua.attachmentapp.data.model.AttachmentLog
-import com.emmutua.attachmentapp.data.model.GalleryImage
-import com.emmutua.attachmentapp.data.model.GalleryState
+import com.emmutua.util.model.AttachmentLog
+import com.emmutua.util.model.GalleryImage
+import com.emmutua.util.model.GalleryState
 import java.time.ZonedDateTime
 
 @OptIn(ExperimentalFoundationApi::class)

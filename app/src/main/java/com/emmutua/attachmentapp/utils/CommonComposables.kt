@@ -1,4 +1,4 @@
-package com.emmutua.ui.theme.components
+package com.emmutua.attachmentapp.utils
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -41,7 +41,6 @@ fun MyOutlinedTextField(
     )
     Spacer(modifier = Modifier.height(5.dp))
 }
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PassWordField(

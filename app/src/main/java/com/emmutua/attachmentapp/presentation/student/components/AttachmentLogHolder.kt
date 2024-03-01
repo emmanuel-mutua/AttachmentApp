@@ -42,7 +42,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import com.emmutua.attachmentapp.data.model.AttachmentLog
+import com.emmutua.util.model.AttachmentLog
 import com.emmutua.attachmentapp.utils.fetchImagesFromFirebase
 import java.time.Instant
 import java.time.ZoneId

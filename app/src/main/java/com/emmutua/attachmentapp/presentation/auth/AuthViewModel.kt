@@ -151,7 +151,7 @@ class AuthViewModel @Inject constructor(
             delay(2000)
             _studentData.update {
                 it.copy(
-                    uid = FirebaseAuth.getInstance()?.currentUser?.uid ?: "",
+                    uid = FirebaseAuth.getInstance().currentUser?.uid ?: "",
                 )
             }
             val response = storageService.addStudent(_studentData.value)
@@ -176,7 +176,7 @@ class AuthViewModel @Inject constructor(
         }
         viewModelScope.launch {
             storageService.getUserData(
-                uid = FirebaseAuth.getInstance()?.currentUser?.uid ?: "",
+                uid = FirebaseAuth.getInstance().currentUser?.uid ?: "",
                 onSuccess = { document ->
                     Log.d("VM", document.id)
                     Log.d("VM", currentUserId)

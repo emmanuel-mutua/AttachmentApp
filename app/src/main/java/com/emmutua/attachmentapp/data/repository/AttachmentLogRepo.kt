@@ -1,7 +1,7 @@
 package com.emmutua.attachmentapp.data.repository
 
-import com.emmutua.attachmentapp.data.model.AttachmentLog
-import com.emmutua.attachmentapp.data.model.RequestState
+import com.emmutua.util.model.AttachmentLog
+import com.emmutua.util.model.RequestState
 import kotlinx.coroutines.flow.Flow
 import java.time.ZonedDateTime
 

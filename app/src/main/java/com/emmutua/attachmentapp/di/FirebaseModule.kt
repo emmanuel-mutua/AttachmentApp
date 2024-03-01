@@ -4,7 +4,7 @@ import android.content.Context
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
-import com.emmutua.attachmentapp.connectivity.NetworkConnectivityObserver
+import com.emmutua.util.connectivity.NetworkConnectivityObserver
 import com.emmutua.attachmentapp.data.repository.AuthAuthRepositoryImpl
 import com.emmutua.attachmentapp.data.repository.AuthRepository
 import com.emmutua.attachmentapp.data.repository.StorageService

@@ -1,4 +1,4 @@
-package com.emmutua.attachmentapp.data.model
+package com.emmutua.util.model
 
 import android.net.Uri
 import androidx.compose.runtime.Composable

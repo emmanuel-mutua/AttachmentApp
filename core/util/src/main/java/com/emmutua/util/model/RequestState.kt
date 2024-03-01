@@ -1,4 +1,4 @@
-package com.emmutua.attachmentapp.data.model
+package com.emmutua.util.model
 
 sealed class RequestState<out T> {
     object Idle : RequestState<Nothing>()

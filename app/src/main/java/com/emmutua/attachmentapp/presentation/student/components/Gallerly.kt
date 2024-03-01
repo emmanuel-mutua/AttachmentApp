@@ -24,9 +24,9 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.emmutua.attachmentapp.data.model.GalleryImage
-import com.emmutua.attachmentapp.data.model.GalleryState
-import com.emmutua.attachmentapp.ui.theme.Elevation
+import com.emmutua.ui.theme.Elevation
+import com.emmutua.util.model.GalleryImage
+import com.emmutua.util.model.GalleryState
 import kotlin.math.max
 
 @Composable

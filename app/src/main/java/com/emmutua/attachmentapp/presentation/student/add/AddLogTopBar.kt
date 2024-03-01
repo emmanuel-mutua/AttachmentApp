@@ -14,8 +14,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import com.emmutua.attachmentapp.data.model.AttachmentLog
-import com.emmutua.ui.theme.components.DisplayAlertDialog
+import com.emmutua.util.model.AttachmentLog
+import com.emmutua.attachmentapp.utils.DisplayAlertDialog
 import com.maxkeppeker.sheets.core.models.base.rememberUseCaseState
 import com.maxkeppeler.sheets.calendar.CalendarDialog
 import com.maxkeppeler.sheets.calendar.models.CalendarConfig

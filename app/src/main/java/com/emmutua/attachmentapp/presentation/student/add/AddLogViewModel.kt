@@ -15,10 +15,10 @@ import com.emmutua.attachmentapp.data.database.ImageToDeleteDao
 import com.emmutua.attachmentapp.data.database.ImageToUploadDao
 import com.emmutua.attachmentapp.data.database.entity.ImageToDelete
 import com.emmutua.attachmentapp.data.database.entity.ImageToUpload
-import com.emmutua.attachmentapp.data.model.AttachmentLog
-import com.emmutua.attachmentapp.data.model.GalleryImage
-import com.emmutua.attachmentapp.data.model.GalleryState
-import com.emmutua.attachmentapp.data.model.RequestState
+import com.emmutua.util.model.AttachmentLog
+import com.emmutua.util.model.GalleryImage
+import com.emmutua.util.model.GalleryState
+import com.emmutua.util.model.RequestState
 import com.emmutua.attachmentapp.data.repository.FirebaseAttachmentLogRepo
 import com.emmutua.attachmentapp.utils.Contants.ADD_SCREEN_ARGUMENT_KEY
 import com.emmutua.attachmentapp.utils.fetchImagesFromFirebase

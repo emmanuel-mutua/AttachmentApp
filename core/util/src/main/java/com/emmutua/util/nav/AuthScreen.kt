@@ -1,4 +1,4 @@
-package com.emmutua.attachmentapp.presentation.auth
+package com.emmutua.util.nav
 
 sealed class AuthScreen(val route: String) {
     object Login : AuthScreen(route = "login")

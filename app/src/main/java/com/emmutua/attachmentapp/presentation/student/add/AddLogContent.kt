@@ -43,9 +43,9 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.emmutua.attachmentapp.R
-import com.emmutua.attachmentapp.data.model.AttachmentLog
-import com.emmutua.attachmentapp.data.model.GalleryImage
-import com.emmutua.attachmentapp.data.model.GalleryState
+import com.emmutua.util.model.AttachmentLog
+import com.emmutua.util.model.GalleryImage
+import com.emmutua.util.model.GalleryState
 import com.emmutua.attachmentapp.presentation.student.components.GalleryUploader
 import kotlinx.coroutines.launch
 

@@ -1,8 +1,8 @@
 package com.emmutua.attachmentapp.data.repository
 
 import android.util.Log
-import com.emmutua.attachmentapp.data.model.AttachmentLog
-import com.emmutua.attachmentapp.data.model.RequestState
+import com.emmutua.util.model.AttachmentLog
+import com.emmutua.util.model.RequestState
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

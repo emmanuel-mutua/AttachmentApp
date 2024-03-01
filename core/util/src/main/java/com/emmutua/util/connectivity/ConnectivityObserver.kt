@@ -1,4 +1,4 @@
-package com.emmutua.attachmentapp.connectivity
+package com.emmutua.util.connectivity
 
 import kotlinx.coroutines.flow.Flow
 

@@ -22,12 +22,11 @@ import androidx.navigation.compose.rememberNavController
 import com.emmutua.attachmentapp.data.database.ImageToDeleteDao
 import com.emmutua.attachmentapp.data.database.ImageToUploadDao
 import com.emmutua.attachmentapp.presentation.auth.AuthNavGraph
-import com.emmutua.attachmentapp.presentation.auth.AuthScreen
+import com.emmutua.util.nav.AuthScreen
 import com.emmutua.attachmentapp.presentation.auth.AuthViewModel
-import com.emmutua.attachmentapp.ui.theme.AttachmentAppTheme
 import com.emmutua.attachmentapp.utils.retryDeletingImageFromFirebase
 import com.emmutua.attachmentapp.utils.retryUploadingImageToFirebase
-import com.jakewharton.threetenabp.AndroidThreeTen
+import com.emmutua.ui.theme.AttachmentAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -45,7 +44,6 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        AndroidThreeTen.init(this)
         installSplashScreen()
         WindowCompat.setDecorFitsSystemWindows(window, false)
         setContent {

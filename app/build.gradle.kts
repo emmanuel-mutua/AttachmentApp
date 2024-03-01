@@ -1,9 +1,9 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.ksp)
-    alias(libs.plugins.dagger.hilt.android)
-    alias(libs.plugins.google.services)
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+    id("com.google.devtools.ksp")
+    id("com.google.dagger.hilt.android")
+    id("com.google.gms.google-services")
 //    id("kotlin-kapt")
 }
 
@@ -36,7 +36,6 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
-        isCoreLibraryDesugaringEnabled = true
     }
     kotlinOptions {
         jvmTarget = "17"
@@ -72,9 +71,6 @@ dependencies {
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
     implementation(libs.navigation.compose)
-
-    implementation(libs.threetenabp)
-
 
     // FIREBASE
     implementation(platform(libs.firebase.bom))
@@ -112,9 +108,6 @@ dependencies {
 
     // IMAGE DISPLAY
     implementation(libs.coil.compose)
-
-    // Desugar JDK
-    coreLibraryDesugaring(libs.desugar.jdk)
 
     implementation(project(":core:ui"))
     implementation(project(":core:util"))

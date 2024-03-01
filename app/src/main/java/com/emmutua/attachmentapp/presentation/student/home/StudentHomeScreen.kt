@@ -27,7 +27,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
-import com.emmutua.attachmentapp.data.model.RequestState
+import com.emmutua.util.model.RequestState
 import com.emmutua.attachmentapp.data.repository.AttachmentLogs
 import com.emmutua.attachmentapp.presentation.student.components.HomeAppBar
 import com.emmutua.attachmentapp.presentation.student.components.NavigationDrawer

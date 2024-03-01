@@ -1,4 +1,4 @@
-package com.emmutua.attachmentapp.data.model
+package com.emmutua.util.model
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser

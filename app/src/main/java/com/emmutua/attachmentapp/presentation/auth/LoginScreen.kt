@@ -21,7 +21,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -40,9 +39,8 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.emmutua.ui.theme.components.MyOutlinedTextField
-import com.emmutua.ui.theme.components.PassWordField
-import com.emmutua.attachmentapp.utils.Contants
+import com.emmutua.attachmentapp.utils.MyOutlinedTextField
+import com.emmutua.attachmentapp.utils.PassWordField
 import com.stevdzasan.messagebar.ContentWithMessageBar
 import com.stevdzasan.messagebar.rememberMessageBarState
 
@@ -56,16 +54,8 @@ fun LoginScreen(
 ) {
     val passwordVisible by rememberSaveable { mutableStateOf(false) }
     val isLoading = registerState.isLoading
-    var isSignedIn by remember { mutableStateOf(false) }
-    var isError by remember { mutableStateOf(false) }
     var email by remember { mutableStateOf("") }
-    var errorMessage by remember { mutableStateOf("") }
-    val roles = listOf(Contants.StaffText, Contants.StudentText)
-    var role by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
-    var selectedRole by remember { mutableStateOf(role) }
-    val signInResponse by viewModel.signInResponse.collectAsState()
-    val isEmailVerified = viewModel.isEmailVerified
     val context = LocalContext.current
 
     Scaffold(
@@ -117,16 +107,6 @@ fun LoginScreen(
                     isError = false,
                     onValueChange = { password = it },
                 )
-
-//            if (passwordState.error != "") {
-//                Text(
-//                    text = passwordState.error ?: "",
-//                    style = MaterialTheme.typography.body2,
-//                    color = MaterialTheme.colors.error,
-//                    textAlign = TextAlgn.End,
-//                  modifier = Modifier.fillMaxWidth(),
-//                )
-//            }
 
                 Spacer(modifier = Modifier.height(50.dp))
                 Button(

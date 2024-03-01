@@ -24,7 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.emmutua.attachmentapp.data.model.AttachmentLog
+import com.emmutua.util.model.AttachmentLog
 import com.emmutua.attachmentapp.presentation.student.components.AttachmentLogHolder
 import java.time.LocalDate
 

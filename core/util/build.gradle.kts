@@ -29,15 +29,29 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = ProjectConfig.kotlinCompilerExtensionVersion
+    }
 }
 
 dependencies {
 
+    // firebase
     implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.auth.ktx)
     implementation(libs.firebase.firestore)
     implementation(libs.firebase.storage.ktx)
+
     implementation(libs.desugar.jdk)
     implementation(libs.android.ktx)
-    implementation(project(":app"))
 
+    //compose
+    implementation(platform(libs.compose.bom))
+    implementation(libs.ui.ui)
+    implementation(libs.ui.graphics)
+
+    implementation(project(":core:ui"))
 }

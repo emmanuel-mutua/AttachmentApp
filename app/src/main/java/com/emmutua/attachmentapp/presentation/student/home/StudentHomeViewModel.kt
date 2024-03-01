@@ -10,9 +10,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.emmutua.attachmentapp.connectivity.ConnectivityObserver
-import com.emmutua.attachmentapp.connectivity.NetworkConnectivityObserver
-import com.emmutua.attachmentapp.data.model.RequestState
+import com.emmutua.util.connectivity.ConnectivityObserver
+import com.emmutua.util.connectivity.NetworkConnectivityObserver
+import com.emmutua.util.model.RequestState
 import com.emmutua.attachmentapp.data.repository.AttachmentLogs
 import com.emmutua.attachmentapp.data.repository.FirebaseAttachmentLogRepo
 import dagger.hilt.android.lifecycle.HiltViewModel

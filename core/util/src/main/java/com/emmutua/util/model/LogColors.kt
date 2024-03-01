@@ -1,20 +1,5 @@
 import androidx.compose.ui.graphics.Color
-import com.emmutua.attachmentapp.ui.theme.AngryColor
-import com.emmutua.attachmentapp.ui.theme.AwfulColor
-import com.emmutua.attachmentapp.ui.theme.BoredColor
-import com.emmutua.attachmentapp.ui.theme.CalmColor
-import com.emmutua.attachmentapp.ui.theme.DepressedColor
-import com.emmutua.attachmentapp.ui.theme.DisappointedColor
-import com.emmutua.attachmentapp.ui.theme.HappyColor
-import com.emmutua.attachmentapp.ui.theme.HumorousColor
-import com.emmutua.attachmentapp.ui.theme.LonelyColor
-import com.emmutua.attachmentapp.ui.theme.MysteriousColor
-import com.emmutua.attachmentapp.ui.theme.NeutralColor
-import com.emmutua.attachmentapp.ui.theme.RomanticColor
-import com.emmutua.attachmentapp.ui.theme.ShamefulColor
-import com.emmutua.attachmentapp.ui.theme.SurprisedColor
-import com.emmutua.attachmentapp.ui.theme.SuspiciousColor
-import com.emmutua.attachmentapp.ui.theme.TenseColor
+import com.emmutua.ui.theme.*
 
 enum class LogColors(
     val contentColor: Color,

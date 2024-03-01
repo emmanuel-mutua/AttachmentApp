@@ -2,8 +2,8 @@ package com.emmutua.attachmentapp.data.repository
 
 import android.util.Log
 import com.emmutua.attachmentapp.data.Response
-import com.emmutua.attachmentapp.data.model.AttachmentLog
-import com.emmutua.attachmentapp.data.model.RequestState
+import com.emmutua.util.model.AttachmentLog
+import com.emmutua.util.model.RequestState
 import com.emmutua.attachmentapp.presentation.auth.StudentData
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
@@ -28,7 +28,7 @@ class StorageServiceImpl(
             Log.d("FireStore", "User Registred success")
             true
         } catch (e: Exception) {
-            Log.d("FireStore", e.localizedMessage)
+            e.localizedMessage?.let { Log.d("FireStore", it) }
             false
         }
     }
@@ -44,7 +44,7 @@ class StorageServiceImpl(
                     onSuccess(document)
                 }.await()
         } catch (e: Exception) {
-            Log.d("FireStore", e.localizedMessage)
+            e.localizedMessage?.let { Log.d("FireStore", it) }
         }
     }
 }

@@ -9,6 +9,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.emmutua.attachmentapp.presentation.student.home.StudentHomeScreen
+import com.emmutua.util.nav.AuthScreen
 import com.stevdzasan.messagebar.rememberMessageBarState
 
 @Composable
@@ -81,7 +82,6 @@ fun NavGraphBuilder.registerScreen(
         )
     }
 }
-
 
 
 fun NavGraphBuilder.studentHomeScreen(navigateToLogin: () -> Unit) {
