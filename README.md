@@ -66,3 +66,6 @@ mavenCentral()
 }`
 - repositories are remote sources where the plugins are located
 - Create under buildSrc a new dir `src/main/java` then new file where you will define all constants to add use in the gradle build file 
+
+![img.png](images/img.png)
+![img_1.png](images/img_1.png)
